@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="fr">
+
+<html>
     <head>
+        <title>Mario Maker - Les niveaux des Canards</title>
         <meta charset="utf-8">
-        <title>CanardPC - Mario Maker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     </head>
 
     <body>
-        Page de gestion des niveaux Mario Maker créés par la communauté CanardPC
+        <div id="app">
+            <h1>{{ title }}</h1>
+
+            <section>
+                <h2>Tags</h2>
+
+                <div class="tags">
+                    <p class="tag" v-for="tag in tags" :key="tag">{{ tag }}</p>
+                </div>
+            </section>
+        </div>
     </body>
+
+    <script src="main.js"></script>
 </html>
