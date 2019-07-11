@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css" />
         <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     </head>
 
@@ -19,7 +20,7 @@
                 <h2>Tags</h2>
 
                 <div class="tags">
-                    <p class="tag" v-for="tag in tags" :key="tag">{{ tag }}</p>
+                    <p class="tag" v-for="tag in tags" :key="tag.label">{{ tag.label }}</p>
                 </div>
             </section>
         </div>

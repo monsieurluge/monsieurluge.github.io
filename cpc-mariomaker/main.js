@@ -8,27 +8,28 @@ const firebaseConfig = {
   appId: "1:781211724051:web:f8ad013cdfa51278"
 }
 
+const pipe = (...functions) => param => functions.reduce((result, func) => func(result), param);
+
+const snapshotToTags = snapshot => snapshot.docs.map(doc => doc.data())
+
 new Vue({
   el: '#app',
   data () {
     return {
-      database: undefined,
       title: 'Mario Maker - Les niveaux créés par la communauté CanardPC',
-      tags: [ 'test', 'mini', 'expert', 'puzzle' ]
+      tags: []
     }
   },
-  computed: {
-    withDatabase () {
-      return this.database
+  methods: {
+    updateTags (tags) {
+      this.tags = tags
     }
   },
   created () {
     firebase.initializeApp(firebaseConfig)
 
-    this.database = firebase.database()
-
-    this.database
-      .ref('tags')
-      .on('value', result => console.log(result))
+    firebase.firestore().collection('tags').get().then(
+      pipe(snapshotToTags, this.updateTags)
+    )
   }
 }).$mount('#app')
