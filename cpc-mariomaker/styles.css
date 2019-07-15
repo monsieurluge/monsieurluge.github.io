@@ -7,12 +7,12 @@
  * green  #43b047
  */
 
- @font-face {
+@font-face {
     font-family: "BebasNeue";
     src: url("./fonts/bebas_neue/BebasNeue-Regular.ttf")
- }
+}
 
- @font-face {
+@font-face {
     font-family: "Montserrat";
     src: url("./fonts/Montserrat/Montserrat-Thin.ttf"),
          url("./fonts/Montserrat/Montserrat-ThinItalic.ttf"),
@@ -20,25 +20,56 @@
          url("./fonts/Montserrat/Montserrat-Italic.ttf"),
          url("./fonts/Montserrat/Montserrat-Bold.ttf")
          url("./fonts/Montserrat/Montserrat-BoldItalic.ttf");
- }
+}
 
 html {
     height: 100%;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 body {
+    height: 100%;
     margin: 0;
     font-family: "Montserrat", sans-serif;
     color: #303030;
+    background-color: #f9ba00;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAPklEQVQYV2P8c4vh///vDHDAyInE/n2R4T+MiywBEmOESaJLgEwDS2KTAOsE2YmwhYEBxX5kSXSHwXViczEABkMfveE+1/sAAAAASUVORK5CYII=) repeat;
+}
+
+#app {
+    width: 400px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #fbd000;
+    border-right: 8px solid #30303020;
+    border-left: 8px solid #30303020;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 3rem 2rem;
+    font-family: "BebasNeue", monospace;
+    text-align: center;
     background-color: #fbd000;
 }
 
-h1 {
-    margin: 0 0 3rem;
-    padding: 1rem 2rem;
-    font-family: "BebasNeue", monospace;
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAPklEQVQYV2P8c4vh///vDHDAyInE/n2R4T+MiywBEmOESaJLgEwDS2KTAOsE2YmwhYEBxX5kSXSHwXViczEABkMfveE+1/sAAAAASUVORK5CYII=) repeat;
+header h1 {
+    position: relative;
+    margin: 0;
+    font-size: 3rem;
+}
+
+header .game-version {
+    position: absolute;
+    top: -2.3rem;
+    right: 1.3rem;
+    font-size: 5rem;
+    color: #e52521;
+}
+
+header .subtitle {
+    margin: 0;
+    font-size: 1.3rem;
 }
 
 section {

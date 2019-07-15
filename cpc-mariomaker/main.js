@@ -16,7 +16,9 @@ new Vue({
   el: '#app',
   data () {
     return {
-      title: 'Mario Maker - Les niveaux créés par la communauté CanardPC',
+      title: 'Mario Maker',
+      gameVersion: 2,
+      subtitle: 'Les niveaux de la communauté CanardPC',
       tags: []
     }
   },
