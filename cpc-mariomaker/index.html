@@ -30,11 +30,16 @@
     </body>
 
     <!-- the web app core modules and components -->
+    <script src="./scripts/api/firestore.js"></script>
+    <script src="./scripts/api/fake.js"></script>
+    <script src="./scripts/app.js"></script>
     <script src="./scripts/helpers.js"></script>
-    <script src="./components/app.vue.js"></script>
     <script src="./components/tags.vue.js"></script>
     <!-- start the web app -->
     <script>
-      window.onload = () => app.$mount('#app')
+        window.onload = () =>
+            createApp(createFakeApi())
+            // createApp(createFirestoreApi())
+                .$mount('#app')
     </script>
 </html>
