@@ -35,11 +35,11 @@
     <script src="./scripts/app.js"></script>
     <script src="./scripts/helpers.js"></script>
     <script src="./components/tags.vue.js"></script>
+
     <!-- start the web app -->
     <script>
         window.onload = () =>
-            createApp(createFakeApi())
-            // createApp(createFirestoreApi())
-                .$mount('#app')
+            createApp(createFakeApi()).$mount('#app')
+            // createApp(createFirestoreApi()).$mount('#app')
     </script>
 </html>
