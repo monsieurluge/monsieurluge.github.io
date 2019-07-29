@@ -1,9 +1,10 @@
 Vue.component('LevelsFilters', {
   template: `
     <div class="levels-filters">
-      <LevelsFilter label="favoris" />
-      <LevelsFilter label="mes niveaux" />
-      <LevelsFilter label="à finir" />
+      <IconToggle icon="list2" label="tous" isActive=true />
+      <IconToggle icon="star-full" label="favoris" />
+      <IconToggle icon="user" label="mes niveaux" />
+      <IconToggle icon="checkmark" label="à finir" />
     </div>
   `,
   data () {
