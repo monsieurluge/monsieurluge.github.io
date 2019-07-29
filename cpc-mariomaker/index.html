@@ -14,10 +14,7 @@
 
     <body>
         <div id="app">
-            <header>
-                <h1>{{ title }}<span class="game-version">{{ gameVersion }}</span></h1>
-                <p class="subtitle">{{ subtitle }}</p>
-            </header>
+            <app-header v-bind="headerInfos"></app-header
 
             <section>
                 <header>niveaux</header>
@@ -34,6 +31,7 @@
     <script src="./scripts/api/fake.js"></script>
     <script src="./scripts/app.js"></script>
     <script src="./scripts/helpers.js"></script>
+    <script src="./components/app-header.vue.js"></script>
     <script src="./components/level-card.vue.js"></script>
 
     <!-- start the web app -->

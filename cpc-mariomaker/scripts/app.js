@@ -2,10 +2,15 @@ function createApp(api) {
   return new Vue({
     data () {
       return {
-        title: 'Mario Maker',
+        appTitle: 'Mario Maker',
         gameVersion: 2,
-        subtitle: 'Les niveaux de la communauté CanardPC',
+        appSubtitle: 'Les niveaux de la communauté CanardPC',
         levels: []
+      }
+    },
+    computed: {
+      headerInfos () {
+        return { title: this.appTitle, subtitle: this.appSubtitle, version: this.gameVersion }
       }
     },
     methods: {

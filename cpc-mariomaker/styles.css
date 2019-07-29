@@ -32,17 +32,14 @@ body {
     margin: 0;
     font-family: "Montserrat", sans-serif;
     color: #303030;
-    background-color: #f9ba00;
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAPklEQVQYV2P8c4vh///vDHDAyInE/n2R4T+MiywBEmOESaJLgEwDS2KTAOsE2YmwhYEBxX5kSXSHwXViczEABkMfveE+1/sAAAAASUVORK5CYII=) repeat;
+    background-color: #fbd000;
 }
 
 #app {
     width: 400px;
     height: 100%;
     margin: 0 auto;
-    background-color: #fbd000;
-    border-right: 8px solid #30303020;
-    border-left: 8px solid #30303020;
+    box-shadow: 0 0 40px 1px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
 
@@ -50,7 +47,6 @@ header {
     padding: 3rem 2rem;
     font-family: "BebasNeue", monospace;
     text-align: center;
-    background-color: #fbd000;
 }
 
 header h1 {
@@ -72,9 +68,7 @@ header .subtitle {
     font-size: 1.3rem;
 }
 
-section {
-    padding: 0 2rem;
-}
+section {}
 
 .tags {
     display: flex;
