@@ -1,7 +1,7 @@
 Vue.component('Levels', {
   template: `
   <div>
-      <level-card v-for="level in levels" :key="level.id" v-bind="level"></level-card>
+      <LevelCard v-for="level in levels" :key="level.id" v-bind="level" />
   </div>
   `,
   props: {

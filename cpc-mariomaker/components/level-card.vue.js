@@ -1,4 +1,4 @@
-Vue.component('level-card', {
+Vue.component('LevelCard', {
   template: `
   <div>
       <strong>{{ code }}</strong><br />
