@@ -1,9 +1,9 @@
 Vue.component('level-card', {
   template: `
-    <div>
+  <div>
       <strong>{{ code }}</strong><br />
       {{ title }} - par <strong>{{ by }}</strong>
-    </div>
+  </div>
   `,
   props: {
     code: { type: String, required: true },
