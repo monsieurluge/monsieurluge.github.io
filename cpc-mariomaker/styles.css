@@ -3,6 +3,7 @@
 :root {
   --blue-color: #049cd8;
   --dark-gray-color: #303030;
+  --gray-color: #303030;
   --green-color: #43b047;
   --red-color: #e52521;
   --yellow-color: #fbd000;
@@ -38,6 +39,10 @@ body {
     background-color: var(--yellow-color);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "BebasNeue", monospace;
+}
+
 /* -------------------------------------------------------------- APP CONTENT */
 
 .app-content {
@@ -52,7 +57,6 @@ body {
 
 header {
     padding: 3rem 2rem;
-    font-family: "BebasNeue", monospace;
     text-align: center;
 }
 
@@ -72,7 +76,37 @@ header .game-version {
 
 header .subtitle {
     margin: 0;
+    font-family: "BebasNeue", monospace;
     font-size: 1.3rem;
 }
 
 /* -------------------------------------------------------------- LEVELS LIST */
+
+.levels {}
+
+/* --------------------------------------------------------------- LEVEL CARD */
+
+.level-card {
+  padding: 20px;
+  transition: background-color 0.8s;
+}
+
+.level-card:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.level-card h2 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 2rem;
+  color: var(--green-color)
+}
+
+.level-card-infos {
+  margin: 0;
+  color: var(--dark-gray-color)
+}
+
+.level-card-infos .title {
+  font-weight: bolder;
+}
