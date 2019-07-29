@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .app-content {
     width: 400px;
-    height: 100%;
+    min-height: 100%;
     margin: 0 auto;
     box-shadow: 0 0 40px 1px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -83,6 +83,21 @@ header .subtitle {
 /* -------------------------------------------------------------- LEVELS LIST */
 
 .levels {}
+
+/* ----------------------------------------------------------- LEVELS FILTERS */
+
+.levels-filters {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #ffffff;
+  background-color: var(--green-color);
+}
+
+.list-filters div {
+
+}
 
 /* --------------------------------------------------------------- LEVEL CARD */
 
