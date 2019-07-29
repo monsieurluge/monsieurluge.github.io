@@ -121,11 +121,11 @@ header .subtitle {
   color: #ffffff;
 }
 
-/* ------------------------------------------------------------- LEFT TOOLTIP */
+/* ------------------------------------------------------------ RIGHT TOOLTIP */
 
 .tooltip[data-tooltip]:hover:after {
   position: absolute;
-  top: 4px;
+  top: calc(50% - 15px);
   left: calc(100% + 10px);
   padding: 0 1rem;
   line-height: 30px;
@@ -140,12 +140,16 @@ header .subtitle {
 /* --------------------------------------------------------------- LEVEL CARD */
 
 .level-card {
-  padding: 20px;
+  position: relative;
   transition: background-color 0.8s;
 }
 
 .level-card:hover {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.level-card-content {
+  padding: 20px;
 }
 
 .level-card h2 {
@@ -155,11 +159,8 @@ header .subtitle {
   color: var(--green-color)
 }
 
-.level-card-infos {
+.level-card-title {
   margin: 0;
-  color: var(--dark-gray-color)
-}
-
-.level-card-infos .title {
   font-weight: bolder;
+  color: var(--dark-gray-color)
 }
