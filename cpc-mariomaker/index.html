@@ -20,10 +20,10 @@
             </header>
 
             <section>
-                <h2>Tags</h2>
+                <header>niveaux</header>
 
-                <div class="tags">
-                    <p class="tag" v-for="tag in tags" :key="tag.label">{{ tag.label }}</p>
+                <div class="levels">
+                    <level-card v-for="level in levels" :key="level.id" v-bind="level" />
                 </div>
             </section>
         </div>
@@ -34,7 +34,7 @@
     <script src="./scripts/api/fake.js"></script>
     <script src="./scripts/app.js"></script>
     <script src="./scripts/helpers.js"></script>
-    <script src="./components/tags.vue.js"></script>
+    <script src="./components/level-card.vue.js"></script>
 
     <!-- start the web app -->
     <script>

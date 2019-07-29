@@ -5,16 +5,16 @@ function createApp(api) {
         title: 'Mario Maker',
         gameVersion: 2,
         subtitle: 'Les niveaux de la communauté CanardPC',
-        tags: []
+        levels: []
       }
     },
     methods: {
-      updateTags (tags) {
-        this.tags = tags
+      updateLevels (levels) {
+        this.levels = levels
       }
     },
     created () {
-      api.tags.then(this.updateTags)
+      api.levels.then(this.updateLevels)
     }
   })
 }
