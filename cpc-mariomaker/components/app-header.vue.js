@@ -1,13 +1,8 @@
-Vue.component('app-header', {
+Vue.component('AppHeader', {
   template: `
-    <header>
-      <h1>{{ title }}<span class="game-version">{{ version }}</span></h1>
-      <p class="subtitle">{{ subtitle }}</p>
-    </header>
-  `,
-  props: {
-    subtitle: { type: String, required: true },
-    title: { type: String, required: true },
-    version: { type: Number, required: true }
-  }
+  <header>
+      <h1>Mario Maker<span class="game-version">2</span></h1>
+      <p class="subtitle">les niveaux de la communauté CanardPC</p>
+  </header>
+  `
 })
