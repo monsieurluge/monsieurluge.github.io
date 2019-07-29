@@ -1,11 +1,14 @@
-/**
- * colors
- * --------------
- * blue   #049cd8
- * yellow #fbd000
- * red    #e52521
- * green  #43b047
- */
+/* ---------------------------------------------------------------- VARIABLES */
+
+:root {
+  --blue-color: #049cd8;
+  --dark-gray-color: #303030;
+  --green-color: #43b047;
+  --red-color: #e52521;
+  --yellow-color: #fbd000;
+}
+
+/* ------------------------------------------------------------------ GLOBALS */
 
 @font-face {
     font-family: "BebasNeue";
@@ -31,17 +34,21 @@ body {
     height: 100%;
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    color: #303030;
-    background-color: #fbd000;
+    color: var(--dark-gray-color);
+    background-color: var(--yellow-color);
 }
 
-#app {
+/* -------------------------------------------------------------- APP CONTENT */
+
+.app-content {
     width: 400px;
     height: 100%;
     margin: 0 auto;
     box-shadow: 0 0 40px 1px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
+
+/* ------------------------------------------------------------------- HEADER */
 
 header {
     padding: 3rem 2rem;
@@ -58,9 +65,9 @@ header h1 {
 header .game-version {
     position: absolute;
     top: -2.3rem;
-    right: 1.3rem;
+    right: 1.8rem;
     font-size: 5rem;
-    color: #e52521;
+    color: var(--red-color);
 }
 
 header .subtitle {
@@ -68,17 +75,4 @@ header .subtitle {
     font-size: 1.3rem;
 }
 
-section {}
-
-.tags {
-    display: flex;
-    flex-direction: row;
-}
-
-.tag {
-    margin: 4px;
-    padding: 5px 1rem;
-    color: #ffffff;
-    background-color: #43b047;
-    border-radius: 3px;
-}
+/* -------------------------------------------------------------- LEVELS LIST */
