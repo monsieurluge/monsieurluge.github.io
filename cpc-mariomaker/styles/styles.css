@@ -86,7 +86,7 @@ header .subtitle {
 
 /* ----------------------------------------------------------- LEVELS FILTERS */
 
-.levels-filters {
+.levels-selectors {
   position: relative;
   padding: 4px;
   display: flex;
