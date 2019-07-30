@@ -1,10 +1,10 @@
 Vue.component('LevelsFilters', {
   template: `
     <div class="levels-filters">
-      <SelectorAll :active="isSelected('all')" @clicked="select('all')" />
-      <SelectorTodo :active="isSelected('todo')" @clicked="select('todo')" />
-      <SelectorFavs :active="isSelected('favs')" @clicked="select('favs')" />
-      <SelectorMine :active="isSelected('mine')" @clicked="select('mine')" />
+      <SelectorAll :active="isSelected('all')" :total=34 @clicked="select('all')" />
+      <SelectorTodo :active="isSelected('todo')" :total=25 @clicked="select('todo')" />
+      <SelectorFavs :active="isSelected('favs')" :total=5 @clicked="select('favs')" />
+      <SelectorMine :active="isSelected('mine')" :total=2 @clicked="select('mine')" />
     </div>
   `,
   data () {

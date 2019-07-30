@@ -98,27 +98,44 @@ header .subtitle {
 
 /* -------------------------------------------------------------- ICON TOGGLE */
 
-.icon-toggle {
+.icon-toggle-wrapper {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.icon-toggle-icon.icon {
   width: 30px;
   height: 30px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.icon-toggle.icon {
   line-height: 30px;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.3);
-  transition: color 0.5s;
-}
-
-.icon-toggle.icon:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.icon-toggle.icon:active,
-.icon-toggle.icon.active {
   color: #ffffff;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.icon-toggle-wrapper.active .icon {
+  opacity: 1;
+}
+
+.icon-toggle-wrapper:not(.active):hover .icon {
+  opacity: 0.7;
+}
+
+.icon-toggle-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 18px;
+  padding: 0 6px;
+  color: #ffffff;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: bolder;
+  background-color: var(--red-color);
+  border-radius: 10px;
 }
 
 /* ------------------------------------------------------------ RIGHT TOOLTIP */
