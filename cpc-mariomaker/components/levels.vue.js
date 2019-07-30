@@ -25,26 +25,26 @@ Vue.component('Levels', {
   },
   computed: {
     filteredLevels () {
-      return this.levels.filter(this.filteringMethod)
-    },
-    filteringMethod () {
-      const fallback = { name: this.activeFilter, method: () => true }
-      return [...this.filters, fallback]
-        .find(filter => filter.name === this.activeFilter)
-        .method
+      return this.levels.filter(this.filterBy(this.activeFilter))
     },
     totals () {
       return {
-        total: 34,
-        favs: 5,
-        mine: 2,
-        todo: 8
+        total: this.levels.length,
+        favs: this.levels.filter(this.filterBy('favs')).length,
+        mine: this.levels.filter(this.filterBy('mine')).length,
+        todo: this.levels.filter(this.filterBy('todo')).length
       }
     }
   },
   methods: {
     displayLevelsUsing (filter) {
       this.activeFilter = filter
+    },
+    filterBy (name) {
+      const fallback = { name, method: () => true }
+      return [...this.filters, fallback]
+        .find(filter => filter.name === name)
+        .method
     }
   }
 })
