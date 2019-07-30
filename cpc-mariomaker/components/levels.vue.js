@@ -18,10 +18,10 @@ Vue.component('Levels', {
   },
   props: {
     levels: { type: Array, required: true }
-},
-methods: {
-  filterLevels (filter) {
-    console.log('FIXME: filter by', filter)
+  },
+  methods: {
+    filterLevels (filter) {
+      console.log('FIXME: filter by', filter)
+    }
   }
-}
 })
