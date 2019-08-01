@@ -13,17 +13,14 @@ Vue.component('Levels', {
       activeFilter: 'all',
       filters: [
         { name: 'all', method: () => true },
-        { name: 'favs', method: level => this.favs.includes(level.id) },
-        { name: 'mine', method: level => this.mine.includes(level.id) },
-        { name: 'todo', method: level => !this.done.includes(level.id) },
+        { name: 'favs', method: level => level.fav },
+        { name: 'mine', method: level => level.mine },
+        { name: 'todo', method: level => !level.done },
       ]
     }
   },
   props: {
-    done: { type: Array, required: false, default: [1, 2, 3] },
-    favs: { type: Array, required: false, default: [2, 3, 1] },
-    levels: { type: Array, required: true },
-    mine: { type: Array, required: false, default: [6, 7] }
+    levels: { type: Array, required: true }
   },
   computed: {
     filteredLevels () {
