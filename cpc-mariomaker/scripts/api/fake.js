@@ -10,6 +10,11 @@ function createFakeApi() {
       { id: 8, code: '277-KIP-8H0', title: 'Here we goo !', date: '2019-07-18 22:08', by: 'maxoumax', tags: ['court', 'expert', 'thème'] },
       { id: 7, code: '531-MDZ-5G9', title: 'Yoshiiii !', date: '2019-07-17 12:34', by: 'Jul_Azemo', tags: ['court', 'expert', 'thème'] }
     ])),
-    tags: new Promise((resolve, reject) => resolve([{ id: 1, label: 'new' }]))
+    tags: new Promise((resolve, reject) => resolve([{ id: 1, label: 'new' }])),
+    userInfos: new Promise((resolve, reject) => resolve({
+      mine: [6, 7],
+      favs: [2, 3, 1],
+      done: [ 3, 5, 7, 4, 1 ]
+    }))
   }
 }
