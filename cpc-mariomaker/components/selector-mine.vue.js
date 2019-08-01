@@ -1,6 +1,6 @@
 Vue.component('SelectorMine', {
   template: `
-    <IconToggle icon="hammer" :label="fullLabel" :active="active" @clicked="onClick" />
+    <IconTooltip icon="hammer" :label="fullLabel" :active="active" @clicked="onClick" />
   `,
   props: {
     active: { type: Boolean, required: false, default: false },

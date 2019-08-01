@@ -1,6 +1,6 @@
 Vue.component('SelectorFavs', {
   template: `
-    <IconToggle :icon="icon" :label="fullLabel" :active="active" @clicked="onClick" />
+    <IconTooltip :icon="icon" :label="fullLabel" :active="active" @clicked="onClick" />
   `,
   data () {
     return {

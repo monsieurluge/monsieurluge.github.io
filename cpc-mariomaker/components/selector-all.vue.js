@@ -1,6 +1,6 @@
 Vue.component('SelectorAll', {
   template: `
-    <IconToggle icon="list2" :label="fullLabel" :active="active" @clicked="onClick" />
+    <IconTooltip icon="list2" :label="fullLabel" :active="active" @clicked="onClick" />
   `,
   props: {
     active: { type: Boolean, required: false, default: false },
