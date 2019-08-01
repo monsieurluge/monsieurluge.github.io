@@ -165,26 +165,54 @@ header .subtitle {
 
 .level-card {
   position: relative;
-  transition: background-color 0.8s;
+  transition: background 0.5s;
 }
 
 .level-card:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #f9ba00;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAPklEQVQYV2P8c4vh///vDHDAyInE/n2R4T+MiywBEmOESaJLgEwDS2KTAOsE2YmwhYEBxX5kSXSHwXViczEABkMfveE+1/sAAAAASUVORK5CYII=) repeat;
 }
 
 .level-card-content {
   padding: 20px;
 }
 
+.level-card-first-line {
+  display: flex;
+  flex-direction: row;
+}
+
 .level-card h2 {
+  flex: 1;
   margin: 0;
   font-weight: normal;
   font-size: 2rem;
   color: var(--green-color)
 }
 
+.level-icons {
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.level-card:hover .level-icons {
+  opacity: 1;
+}
+
 .level-card-title {
   margin: 0;
   font-weight: bolder;
   color: var(--dark-gray-color)
+}
+
+/* ----------------------------------------------------------- STANDARD ICONS */
+
+.standard-icon.icon {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  color: #ffffff;
 }
