@@ -46,6 +46,8 @@ h1, h2, h3, h4, h5, h6 {
 /* -------------------------------------------------------------- APP CONTENT */
 
 .app-content {
+  display: flex;
+  flex-direction: column;
   width: 400px;
   min-height: 100%;
   margin: 0 auto;
@@ -82,9 +84,14 @@ header .subtitle {
 
 /* -------------------------------------------------------------- LEVELS LIST */
 
-.levels {}
+.levels {
+  display: flex;
+  flex-direction: column;
+}
 
-/* ----------------------------------------------------------- LEVELS FILTERS */
+.levels .levels-cards {}
+
+/* --------------------------------------------------------- LEVELS SELECTORS */
 
 .levels-selectors {
   position: relative;

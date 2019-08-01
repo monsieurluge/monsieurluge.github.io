@@ -3,7 +3,9 @@ Vue.component('Levels', {
   <div class="levels">
     <LevelsSelectors v-bind="totals" @selected="displayLevelsUsing" />
 
-    <LevelCard v-for="level in filteredLevels" :key="level.id" v-bind="level" />
+    <div class="levels-cards">
+      <LevelCard v-for="level in filteredLevels" :key="level.id" v-bind="level" />
+    </div>
   </div>
   `,
   data () {
