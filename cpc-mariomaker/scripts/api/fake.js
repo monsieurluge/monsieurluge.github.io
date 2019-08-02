@@ -14,7 +14,7 @@ function createFakeApi() {
     userInfos: new Promise((resolve, reject) => resolve({
       mine: [6, 7],
       favs: [2, 3, 1],
-      done: [ 3, 5, 7, 4, 1 ]
+      done: [ 3, 5, 6, 7, 4, 1 ]
     }))
   }
 }
