@@ -1,17 +1,15 @@
 Vue.component('LevelCard', {
   template: `
-    <div class="level-card">
-      <div class="tooltip" v-bind:data-tooltip="createdBy">
-        <div class="level-card-content">
-          <div class="level-card-first-line">
-            <h2>{{ code }}</h2>
-            <LevelIcons class="level-card-icons" v-bind="userInfos"/>
-          </div>
-
-          <p class="level-card-title">{{ title }}</p>
+    <TooltipRight class="level-card" :label="createdBy">
+      <div class="level-card-content">
+        <div class="level-card-first-line">
+          <h2>{{ code }}</h2>
+          <LevelIcons class="level-card-icons" v-bind="userInfos"/>
         </div>
+
+        <p class="level-card-title">{{ title }}</p>
       </div>
-    </div>
+    </TooltipRight>
   `,
   props: {
     code: { type: String, required: true },
