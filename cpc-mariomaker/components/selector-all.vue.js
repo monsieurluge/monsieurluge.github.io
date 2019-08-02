@@ -1,9 +1,13 @@
 Vue.component('SelectorAll', {
   template: `
-    <IconTooltip icon="list2" :label="fullLabel" :active="active" @clicked="onClick" />
+    <TooltipRight :label="fullLabel" >
+      <LevelSelector :active="active" @clicked="onClick">
+        <IconAll />
+      </LevelSelector>
+    </TooltipRight>
   `,
   props: {
-    active: { type: Boolean, required: false, default: false },
+    active: { type: Boolean, required: true },
     total: { type: Number, required: true }
   },
   computed: {

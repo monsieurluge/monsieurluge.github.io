@@ -1,24 +1,28 @@
 Vue.component('SelectorFavs', {
   template: `
-    <IconTooltip :icon="icon" :label="fullLabel" :active="active" @clicked="onClick" />
+    <TooltipRight :label="fullLabel" >
+      <LevelSelector :active="active" @clicked="onClick">
+        <IconFav :state="iconState" />
+      </LevelSelector>
+    </TooltipRight>
   `,
   data () {
     return {
       iconSelectors: [
-        { max: Infinity, iconName: 'cross' },
-        { max: 8, iconName: 'star-full' },
-        { max: 7, iconName: 'star-half' },
-        { max: 0, iconName: 'star-empty' },
+        { max: Infinity, state: 'full' },
+        { max: 8, state: 'full' },
+        { max: 7, state: 'half' },
+        { max: 0, state: 'empty' },
       ]
     }
   },
   props: {
-    active: { type: Boolean, required: false, default: false },
+    active: { type: Boolean, required: true },
     total: { type: Number, required: false, default: 0 }
   },
   computed: {
-    icon () {
-      return this.iconSelectors.reduce(this.selectIconName, 'cross')
+    iconState () {
+      return this.iconSelectors.reduce(this.selectIconState, 'full')
     },
     fullLabel () {
       return 'favoris'.concat(this.total === 0 ? '' : ` (${this.total}/8)`)
@@ -28,8 +32,8 @@ Vue.component('SelectorFavs', {
     onClick () {
       this.$emit('clicked')
     },
-    selectIconName (iconName, selector) {
-      return this.total <= selector.max ? selector.iconName : iconName
+    selectIconState (iconState, selector) {
+      return this.total <= selector.max ? selector.state : iconState
     }
   }
 })

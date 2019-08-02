@@ -1,9 +1,13 @@
 Vue.component('SelectorMine', {
   template: `
-    <IconTooltip icon="hammer" :label="fullLabel" :active="active" @clicked="onClick" />
+    <TooltipRight :label="fullLabel" >
+      <LevelSelector :active="active" @clicked="onClick">
+        <IconMine />
+      </LevelSelector>
+    </TooltipRight>
   `,
   props: {
-    active: { type: Boolean, required: false, default: false },
+    active: { type: Boolean, required: true },
     total: { type: Number, required: false, default: 0 }
   },
   computed: {
