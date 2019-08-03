@@ -9,30 +9,22 @@ function createApp(api) {
     `,
     data () {
       return {
-        levels: [],
-        userInfos: {
-          done: [],
-          favs: [],
-          mine: []
-        }
+        levelsState: levelsStore.state,
+        userState: userStore.state
       }
     },
     computed: {
       levelsWithUserInfos () {
-        return this.levels.map(addUserInfos(this.userInfos))
-      }
-    },
-    methods: {
-      updateLevels (levels) {
-        this.levels = levels
-      },
-      updateUserInfos (infos) {
-        this.userInfos = infos
+        return this.levelsState.levels.map(addUserInfos(this.userState.infos))
       }
     },
     created () {
-      api.levels.then(this.updateLevels)
-      api.userInfos.then(this.updateUserInfos)
+      api.levels.then(levels => {
+        levelsStore.setLevels(levels)
+      })
+      api.userInfos.then(infos => {
+        userStore.setInfos(infos)
+      })
     }
   })
 }
