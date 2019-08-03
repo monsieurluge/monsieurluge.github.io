@@ -14,7 +14,7 @@ Vue.component('ButtonDone', {
   },
   methods: {
     onClick () {
-      console.log('FIXME: done clicked')
+      this.$emit('clicked')
     }
   }
 })

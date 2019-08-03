@@ -1,6 +1,7 @@
 const pipe = (...functions) => param => functions.reduce((result, func) => func(result), param)
 
 const addUserInfos = userInfos => {
+  console.log('add user infos', userInfos)
   return pipe(
     addMineInfo(userInfos),
     addFavInfo(userInfos),
