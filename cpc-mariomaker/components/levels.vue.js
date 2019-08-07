@@ -11,7 +11,8 @@ Vue.component('Levels', {
   data () {
     return {
       activeFilter: 'all',
-      levelsStore: levelsStore
+      levelsStore: levelsStore,
+      userStore: userStore
     }
   },
   computed: {
@@ -27,9 +28,9 @@ Vue.component('Levels', {
     totals () {
       return {
         total: this.levelsStore.all().length,
-        favs: this.levelsStore.favorites().length,
-        mine: this.levelsStore.mine().length,
-        todo: this.levelsStore.todo().length
+        favs: this.userStore.favorites().length,
+        mine: this.userStore.mine().length,
+        todo: this.levelsStore.all().length - this.userStore.done().length
       }
     }
   },

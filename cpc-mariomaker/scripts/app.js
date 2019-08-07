@@ -10,6 +10,7 @@ function createApp(api) {
     created () {
       api.levels.then(levels => levelsStore.setLevels(levels))
       api.userLevels.then(levels => {
+        userStore.setLevels(levels)
         levels.done.map(id => levelsStore.markLevelAs({ id, state: 'done' }))
         levels.favorites.map(id => levelsStore.markLevelAs({ id, state: 'fav' }))
         levels.mine.map(id => levelsStore.markLevelAs({ id, state: 'mine' }))
