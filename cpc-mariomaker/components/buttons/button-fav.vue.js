@@ -14,7 +14,7 @@ Vue.component('ButtonFav', {
   },
   methods: {
     onClick () {
-      console.log('FIXME: fav clicked')
+      this.$emit('clicked')
     }
   }
 })
