@@ -1,5 +1,6 @@
 const markAs = state => level => ({ ...level, [state]: true })
 const unmark = state => level => ({ ...level, [state]: false })
+const resetMarks = pipe(unmark('done'), unmark('mine'), unmark('fav'))
 
 const levelsStore = {
   state: {
@@ -21,7 +22,7 @@ const levelsStore = {
     return this.state.levels.filter(level => level.mine)
   },
   setLevels (levels) {
-    this.state.levels = levels
+    this.state.levels = levels.map(resetMarks)
   },
   todo () {
     return this.state.levels.filter(level => !level.done)
