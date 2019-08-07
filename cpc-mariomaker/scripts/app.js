@@ -9,7 +9,9 @@ function createApp(api) {
     `,
     created () {
       api.levels.then(levels => levelsStore.setLevels(levels))
-      api.userInfos.then(infos => userStore.setInfos(infos))
+      api.userLevels.then(levels => {
+        userStore.setLevels(levels)
+      })
     }
   })
 }

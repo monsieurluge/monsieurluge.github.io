@@ -25,7 +25,6 @@ Vue.component('LevelCard', {
       return `par @${this.by}`
     },
     userInfos () {
-      console.log('userInfos.done', this.id, this.done)
       return {
         done: this.done,
         fav: this.fav,

@@ -11,44 +11,31 @@ Vue.component('Levels', {
   data () {
     return {
       activeFilter: 'all',
-      filters: [
-        { name: 'all', method: () => true },
-        { name: 'favs', method: level => level.fav },
-        { name: 'mine', method: level => level.mine },
-        { name: 'todo', method: level => !level.done },
-      ],
-      levelsStore: levelsStore,
-      userStore: userStore
+      levelsStore: levelsStore
     }
   },
   computed: {
-    levels () {
-      return this.levelsStore.all()
-    },
-    levelsWithUserInfos () {
-      return this.levels.map(addUserInfos(this.userStore.infos()))
-    },
     filteredLevels () {
-      return this.levelsWithUserInfos.filter(this.filterBy(this.activeFilter))
+      const filter = new Map([
+        [ 'all', () => this.levelsStore.all() ],
+        [ 'todo', () => this.levelsStore.todo() ],
+        [ 'favs', () => this.levelsStore.favorites() ],
+        [ 'mine', () => this.levelsStore.mine() ],
+      ])
+      return filter.get(this.activeFilter)()
     },
     totals () {
       return {
-        total: this.levels.length,
-        favs: this.levels.filter(this.filterBy('favs')).length,
-        mine: this.levels.filter(this.filterBy('mine')).length,
-        todo: this.levels.filter(this.filterBy('todo')).length
+        total: this.levelsStore.all().length,
+        favs: this.levelsStore.favorites().length,
+        mine: this.levelsStore.mine().length,
+        todo: this.levelsStore.todo().length
       }
     }
   },
   methods: {
     displayLevelsUsing (filter) {
       this.activeFilter = filter
-    },
-    filterBy (name) {
-      const fallback = { name, method: () => true }
-      return [...this.filters, fallback]
-        .find(filter => filter.name === name)
-        .method
     }
   }
 })

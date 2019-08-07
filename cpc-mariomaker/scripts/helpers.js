@@ -1,28 +1,28 @@
 const pipe = (...functions) => param => functions.reduce((result, func) => func(result), param)
 
-const addUserInfos = userInfos => {
-  console.log('add user infos', userInfos)
+const addUserLevelsInfos = userLevels => {
+  console.log('add user levels', userLevels)
   return pipe(
-    addMineInfo(userInfos),
-    addFavInfo(userInfos),
-    addDoneInfo(userInfos),
+    addMineLevels(userLevels),
+    addFavLevels(userLevels),
+    addDoneLevels(userLevels),
   )
 }
 
-const addDoneInfo = userInfos => level => {
-  return userInfos.done.includes(level.id)
+const addDoneLevels = userLevels => level => {
+  return userLevels.done.includes(level.id)
     ? Object.assign(level, { done: true })
     : level
 }
 
-const addFavInfo = userInfos => level => {
-  return userInfos.favs.includes(level.id)
+const addFavLevels = userLevels => level => {
+  return userLevels.favs.includes(level.id)
     ? Object.assign(level, { fav: true })
     : level
 }
 
-const addMineInfo = userInfos => level => {
-  return userInfos.mine.includes(level.id)
+const addMineLevels = userLevels => level => {
+  return userLevels.mine.includes(level.id)
     ? Object.assign(level, { mine: true })
     : level
 }

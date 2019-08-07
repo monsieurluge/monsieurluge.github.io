@@ -15,8 +15,8 @@ Vue.component('LevelIcons', {
   methods: {
     onDoneClicked () {
       this.done
-        ? userStore.levelUndone(this.id)
-        : userStore.levelDone(this.id)
+        ? levelsStore.unmarkLevel({ id: this.id, state: 'done' })
+        : levelsStore.markLevelAs({ id: this.id, state: 'done' })
     }
   }
 })

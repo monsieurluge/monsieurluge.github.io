@@ -1,23 +1,21 @@
 const userStore = {
   state: {
-    infos: {
+    levels: {
       done: [],
-      favs: [],
+      favorites: [],
       mine: []
     }
   },
-  infos () {
-    return this.state.infos
+  levels () {
+    return this.state.levels
   },
   levelDone (levelId) {
-    this.state.infos.done = [...this.state.infos.done, levelId]
-    console.log('level', levelId, 'done')
+    this.state.levels.done = [...this.state.levels.done, levelId]
   },
   levelUndone (levelId) {
-    this.state.infos.done = this.state.infos.done.filter(id => id !== levelId)
-    console.log('level', levelId, 'undone')
+    this.state.levels.done = this.state.levels.done.filter(id => id !== levelId)
   },
-  setInfos (infos) {
-    this.state.infos = infos
+  setLevels (levels) {
+    this.state.levels = levels
   }
 }
