@@ -38,13 +38,10 @@ Vue.component('Levels', {
     },
     totals () {
       return {
-        total: this.levels.length,
-        // favs: this.userLevels.favorites.length,
-        favs: 0,
-        // mine: this.userLevels.mine().length,
-        mine: 0,
-        // todo: this.userLevels.all().length - this.userStore.done().length
-        todo: 0
+        total: this.all.length,
+        favs: this.favorites.length,
+        mine: 0, // fixme
+        todo: this.todo.length
       }
     }
   },
