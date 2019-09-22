@@ -1,7 +1,7 @@
 Vue.component('Levels', {
   template: `
     <div class="levels">
-      <LevelsSelectors v-bind="totals" @selected="displayLevelsUsing" />
+      <LevelsSelectors v-bind="totals" @selected="changeActiveFilter" />
 
       <div class="levels-cards">
         <LevelCard v-for="level in filteredLevels" :key="level.id" v-bind="level" />
@@ -19,14 +19,13 @@ Vue.component('Levels', {
   },
   computed: {
     filteredLevels () {
-      // const filter = new Map([
-      //   [ 'all', () => this.levelsStore.all() ],
-      //   [ 'todo', () => this.levelsStore.todo() ],
-      //   [ 'favs', () => this.levelsStore.favorites() ],
-      //   [ 'mine', () => this.levelsStore.mine() ],
-      // ])
-      // return filter.get(this.activeFilter)()
-      return this.levels
+      const filter = new Map([
+        [ 'all', () => true ],
+        [ 'todo', level => !this.userLevels.favorites.includes(level.id) ],
+        [ 'favs', level => this.userLevels.favorites.includes(level.id) ],
+        [ 'mine', () => false ], // fixme
+      ])
+      return this.levels.filter(filter.get(this.activeFilter))
     },
     totals () {
       return {
@@ -41,7 +40,7 @@ Vue.component('Levels', {
     }
   },
   methods: {
-    displayLevelsUsing (filter) {
+    changeActiveFilter (filter) {
       this.activeFilter = filter
     }
   }
