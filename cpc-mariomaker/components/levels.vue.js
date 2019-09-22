@@ -8,29 +8,35 @@ Vue.component('Levels', {
       </div>
     </div>
   `,
+  props: {
+    levels: { type: Array, required: false, default: () => [] },
+    userLevels: { type: Array, required: false, default: () => ({ done: [], favorites: [] }) }
+  },
   data () {
     return {
-      activeFilter: 'all',
-      levelsStore: levelsStore,
-      userStore: userStore
+      activeFilter: 'all'
     }
   },
   computed: {
     filteredLevels () {
-      const filter = new Map([
-        [ 'all', () => this.levelsStore.all() ],
-        [ 'todo', () => this.levelsStore.todo() ],
-        [ 'favs', () => this.levelsStore.favorites() ],
-        [ 'mine', () => this.levelsStore.mine() ],
-      ])
-      return filter.get(this.activeFilter)()
+      // const filter = new Map([
+      //   [ 'all', () => this.levelsStore.all() ],
+      //   [ 'todo', () => this.levelsStore.todo() ],
+      //   [ 'favs', () => this.levelsStore.favorites() ],
+      //   [ 'mine', () => this.levelsStore.mine() ],
+      // ])
+      // return filter.get(this.activeFilter)()
+      return this.levels
     },
     totals () {
       return {
-        total: this.levelsStore.all().length,
-        favs: this.userStore.favorites().length,
-        mine: this.userStore.mine().length,
-        todo: this.levelsStore.all().length - this.userStore.done().length
+        total: this.levels.length,
+        // favs: this.userLevels.favorites.length,
+        favs: 0,
+        // mine: this.userLevels.mine().length,
+        mine: 0,
+        // todo: this.userLevels.all().length - this.userStore.done().length
+        todo: 0
       }
     }
   },

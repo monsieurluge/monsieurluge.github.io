@@ -4,7 +4,7 @@ function createApp(api) {
       <div class="app-content">
         <AppHeader />
 
-        <Levels />
+        <Levels :levels="levels" :userLevels="userLevels" />
       </div>
     `,
     data () {
@@ -13,15 +13,13 @@ function createApp(api) {
         userStore: userStore
       }
     },
+    computed: {
+      levels: () => levelsStore.all(),
+      userLevels: () => userStore.levels()
+    },
     created () {
       api.levels.then(data => this.levelsStore.setLevels(data))
-
-      api.userLevels.then(data => {
-        this.userStore.setLevels(data)
-      //   data.done.forEach(id => this.levelsStore.addProperty({ id, property: 'done' }))
-      //   data.favorites.forEach(id => this.levelsStore.addProperty({ id, property: 'favorite' }))
-      //   data.mine.forEach(id => this.levelsStore.addProperty({ id, property: 'mine' }))
-      })
+      api.userLevels.then(data => this.userStore.setLevels(data))
     }
   })
 }
