@@ -3,8 +3,11 @@ Vue.component('LevelCard', {
     <TooltipRight class="level-card" :label="createdBy">
       <div class="level-card-content">
         <div class="level-card-first-line">
-          <h2>{{ code }}</h2>
-          <LevelIcons class="level-card-icons" :id="id" v-bind="userInfos" />
+          <h2>{{ code }}<IconMineMini v-if="mine" class="level-card-mine-icon" /></h2>
+          <div class="level-icons level-card-icons">
+            <ButtonFav :state="fav ? 'on' : 'off'" @clicked="onFavClicked" />
+            <ButtonDone :state="done ? 'on' : 'off'" @clicked="onDoneClicked" />
+          </div>
         </div>
 
         <p class="level-card-title">{{ title }}</p>
@@ -12,8 +15,8 @@ Vue.component('LevelCard', {
     </TooltipRight>
   `,
   props: {
-    code: { type: String, required: true },
     by: { type: String, required: true },
+    code: { type: String, required: true },
     done: { type: Boolean, required: false, default: false },
     fav: { type: Boolean, required: false, default: false },
     id: { type: Number, required: true },
@@ -22,7 +25,7 @@ Vue.component('LevelCard', {
   },
   computed: {
     createdBy () {
-      return `par @${this.by}`
+      return this.mine ? 'par moi' : `par @${this.by}`
     },
     userInfos () {
       return {
@@ -30,6 +33,18 @@ Vue.component('LevelCard', {
         fav: this.fav,
         mine: this.mine
       }
+    }
+  },
+  methods: {
+    onDoneClicked () {
+      this.done
+        ? levelsStore.unmarkLevel({ id: this.id, state: 'done' })
+        : levelsStore.markLevelAs({ id: this.id, state: 'done' })
+    },
+    onFavClicked () {
+      this.fav
+        ? levelsStore.unmarkLevel({ id: this.id, state: 'fav' })
+        : levelsStore.markLevelAs({ id: this.id, state: 'fav' })
     }
   }
 })
