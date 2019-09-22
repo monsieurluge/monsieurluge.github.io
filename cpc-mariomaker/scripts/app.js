@@ -7,13 +7,20 @@ function createApp(api) {
         <Levels />
       </div>
     `,
+    data () {
+      return {
+        levelsStore: levelsStore,
+        userStore: userStore
+      }
+    },
     created () {
-      api.levels.then(levels => levelsStore.setLevels(levels))
-      api.userLevels.then(levels => {
-        userStore.setLevels(levels)
-        levels.done.map(id => levelsStore.markLevelAs({ id, state: 'done' }))
-        levels.favorites.map(id => levelsStore.markLevelAs({ id, state: 'fav' }))
-        levels.mine.map(id => levelsStore.markLevelAs({ id, state: 'mine' }))
+      api.levels.then(data => this.levelsStore.setLevels(data))
+
+      api.userLevels.then(data => {
+        this.userStore.setLevels(data)
+      //   data.done.forEach(id => this.levelsStore.addProperty({ id, property: 'done' }))
+      //   data.favorites.forEach(id => this.levelsStore.addProperty({ id, property: 'favorite' }))
+      //   data.mine.forEach(id => this.levelsStore.addProperty({ id, property: 'mine' }))
       })
     }
   })

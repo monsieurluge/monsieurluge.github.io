@@ -12,17 +12,26 @@ const userStore = {
   favorites () {
     return this.state.levels.favorites
   },
+  addToDoneLevels (id) {
+    this.state.levels.done = addIdTo(this.state.levels.done)(id)
+  },
+  addToFavorites (id) {
+    this.state.levels.favorites = addIdTo(this.state.levels.favorites)(id)
+  },
   levels () {
     return this.state.levels
   },
-  levelDone (levelId) {
-    this.state.levels.done = [...this.state.levels.done, levelId]
-  },
-  levelUndone (levelId) {
-    this.state.levels.done = this.state.levels.done.filter(id => id !== levelId)
+  logged () {
+    return true
   },
   mine () {
     return this.state.levels.mine
+  },
+  removeFromDoneLevels (id) {
+    this.state.levels.done = removeIdFrom(this.state.levels.done)(id)
+  },
+  removeFromFavorites (id) {
+    this.state.levels.favorites = removeIdFrom(this.state.levels.favorites)(id)
   },
   setLevels (levels) {
     this.state.levels = levels

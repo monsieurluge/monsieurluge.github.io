@@ -1,10 +1,14 @@
 Vue.component('LevelsSelectors', {
   template: `
-    <div class="levels-selectors">
+    <div class="levels-selectors" v-if="user.logged()">
       <SelectorAll :total="total" :active="isSelected('all')" @clicked="select('all')" />
       <SelectorTodo :total="todo" :active="isSelected('todo')" @clicked="select('todo')" />
       <SelectorFavs :total="favs" :active="isSelected('favs')" @clicked="select('favs')" />
       <SelectorMine :total="mine" :active="isSelected('mine')" @clicked="select('mine')" />
+    </div>
+
+    <div class="levels-selectors" v-else>
+      <SelectorAll :total="total" active="true" />
     </div>
   `,
   data () {
@@ -14,7 +18,8 @@ Vue.component('LevelsSelectors', {
         { name: 'favs', selected: false },
         { name: 'mine', selected: false },
         { name: 'todo', selected: false },
-      ]
+      ],
+      user: userStore
     }
   },
   props: {

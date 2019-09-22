@@ -15,13 +15,13 @@ Vue.component('LevelIcons', {
   methods: {
     onDoneClicked () {
       this.done
-        ? levelsStore.unmarkLevel({ id: this.id, state: 'done' })
-        : levelsStore.markLevelAs({ id: this.id, state: 'done' })
+        ? userStore.removeFromDoneLevels(this.id)
+        : userStore.addToDoneLevels(this.id)
     },
     onFavClicked () {
       this.fav
-        ? levelsStore.unmarkLevel({ id: this.id, state: 'fav' })
-        : levelsStore.markLevelAs({ id: this.id, state: 'fav' })
+        ? userStore.removeFromFavorites(this.id)
+        : userStore.addToFavorites(this.id)
     }
   }
 })

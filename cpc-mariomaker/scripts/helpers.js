@@ -1,5 +1,11 @@
 const pipe = (...functions) => param => functions.reduce((result, func) => func(result), param)
 
+// adds an unique item to a collection
+const addItemTo = item => collection => [...new Set(collection.concat([ item ]))]
+
+// removes an unique item from a collection
+const removeItemFrom = item => collection => collection.filter(storedItem => storedItem !== item)
+
 const addUserLevelsInfos = userLevels => {
   console.log('add user levels', userLevels)
   return pipe(
