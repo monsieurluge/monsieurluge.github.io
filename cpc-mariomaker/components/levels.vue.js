@@ -18,14 +18,23 @@ Vue.component('Levels', {
     }
   },
   computed: {
+    all () {
+      return this.levels
+    },
+    favorites () {
+      return this.levels.filter(level => this.userLevels.favorites.includes(level.id))
+    },
     filteredLevels () {
-      const filter = new Map([
-        [ 'all', () => true ],
-        [ 'todo', level => !this.userLevels.favorites.includes(level.id) ],
-        [ 'favs', level => this.userLevels.favorites.includes(level.id) ],
-        [ 'mine', () => false ], // fixme
+      const filters = new Map([
+        [ 'all', () => this.all ],
+        [ 'todo', () => this.todo ],
+        [ 'favs', () => this.favorites ],
+        [ 'mine', () => this.all ], // fixme
       ])
-      return this.levels.filter(filter.get(this.activeFilter))
+      return filters.get(this.activeFilter)()
+    },
+    todo () {
+      return this.levels.filter(level => !this.userLevels.favorites.includes(level.id))
     },
     totals () {
       return {
