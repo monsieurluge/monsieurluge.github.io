@@ -25,7 +25,7 @@ Vue.component('LevelCard', {
   },
   computed: {
     createdBy () {
-      return `par @${this.by}`
+      return this.mine ? 'par moi' : `par @${this.by}`
     },
     userInfos () {
       return {
